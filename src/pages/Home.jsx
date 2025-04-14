@@ -6,19 +6,19 @@ import AppointmentForm from '../components/common/AppointmentForm';
 
 const Home = () => {
   return (
-    <div >
+    <div className="bg-gray-50">
       <HeroSection
-        title="World-Class Healthcare at Your Doorstep"
-        subtitle="Experience exceptional medical care with cutting-edge technology and compassionate professionals dedicated to your well-being."
+        title="Healthcare You Can Trust"
+        subtitle="Discover world-class medical care powered by innovation and compassion, tailored to your unique needs."
         backgroundImage="/images/hero/home-hero.jpg"
-        buttonText="Book an Appointment"
+        buttonText="Book Appointment"
         buttonLink="#appointment"
         height="h-[450px]"
       />
       <DepartmentSection />
       <ServicesGrid />
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-4xl mx-auto  sm:px-6 ">
+      <section className="bg-gradient-to-r from-purple-50 to-indigo-50 py-20" id="appointment">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AppointmentForm />
         </div>
       </section>

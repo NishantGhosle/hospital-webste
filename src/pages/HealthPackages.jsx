@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/common/HeroSection';
 import { Link } from 'react-router-dom';
+import { FaCheckCircle, FaUserMd } from 'react-icons/fa';
 
 const packages = [
   {
@@ -59,98 +60,96 @@ const packages = [
 
 const HealthPackages = () => {
   return (
-    <div>
+    <div className="bg-gray-50">
       <HeroSection
-        title="Comprehensive Health Packages"
-        subtitle="Preventive care packages designed for your well-being, from basic health screenings to executive check-ups."
+        title="Your Health, Our Priority"
+        subtitle="Explore our tailored health packages for comprehensive care and peace of mind."
         backgroundImage="/images/hero/packages-hero.jpg"
-        overlayColor="from-purple-900/80"
-        buttonText="View Packages"
+        overlayColor="from-purple-900/70 to-indigo-900/70"
+        buttonText="Explore Packages"
         buttonLink="#packages"
-        height="h-[400px]"
+        height="h-[450px]"
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="packages">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="packages">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
             Health Check Packages
           </h1>
-          <p className="mt-4 text-xl text-gray-500">
-            Preventive care packages designed for your well-being
+          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Preventive care designed to keep you healthy, from routine check-ups to executive screenings.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg) => (
             <div
               key={pkg.id}
-              className={`relative bg-white rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-2xl ${pkg.featured ? 'ring-2 ring-[#B4336D]' : ''}`}
+              className={`relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl ${
+                pkg.featured ? 'ring-4 ring-purple-200' : ''
+              }`}
             >
               {pkg.featured && (
-                <div className="absolute top-4 right-4">
-                  <div className="bg-gradient-to-r from-[#B4336D] to-pink-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg">
-                    Most Popular
-                  </div>
+                <div className="absolute top-0 left-0 w-full">
+                 
                 </div>
               )}
               <div className="p-8">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h2>
-                    <p className="text-gray-600">{pkg.description}</p>
+                    <h2 className="text-2xl md:text-2xl font-bold text-gray-900">{pkg.name}</h2>
+                    <p className="text-gray-600 text-sm md:text-base">{pkg.description}</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-gray-500 mb-1">Starting from</div>
-                    <div className="text-4xl font-bold text-[#B4336D]">${pkg.price}</div>
+                    <div className="text-sm text-gray-500">From</div>
+                    <div className="text-2xl md:text-3xl font-extrabold text-purple-700">
+                      ${pkg.price}
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <svg className="w-5 h-5 mr-2 text-[#B4336D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                    Included Tests
+                    <FaCheckCircle className="w-5 h-5 text-purple-700 mr-2" />
+                    What's Included
                   </h3>
                   <ul className="space-y-3">
                     {pkg.tests.map((test) => (
-                      <li key={test} className="flex items-start bg-gray-50 p-3 rounded-lg hover:bg-pink-50 transition-colors">
-                        <svg
-                          className="h-5 w-5 text-[#B4336D] mr-3 mt-0.5 flex-shrink-0"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-gray-700">{test}</span>
+                      <li
+                        key={test}
+                        className="flex items-center bg-gray-50 p-3 rounded-lg hover:bg-purple-50 transition-colors"
+                      >
+                        <FaCheckCircle className="h-5 w-5 text-purple-700 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700 text-sm md:text-base">{test}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="mt-8">
-                  <div className="flex items-center mb-6 bg-blue-50 p-4 rounded-lg">
-                    <svg className="w-5 h-5 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    <p className="text-sm text-blue-700 font-medium">
+                  <div className="flex items-center bg-purple-50 p-4 rounded-lg mb-6">
+                    <FaUserMd className="w-5 h-5 text-purple-700 mr-3" />
+                    <p className="text-sm text-purple-900 font-medium">
                       Recommended for: {pkg.recommended}
                     </p>
                   </div>
                   <Link
                     to="/contact"
-                    className={`w-full flex items-center justify-center py-4 px-6 rounded-xl text-white font-medium
-                      ${pkg.featured
-                        ? 'bg-gradient-to-r from-[#B4336D] to-pink-500 hover:from-[#B4336D]/90 hover:to-pink-500/90'
-                        : 'bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-800 hover:to-gray-700'
-                      } transform transition-all duration-300 hover:scale-[0.98] hover:shadow-lg`}
+                    className="w-full flex items-center justify-center py-3 px-6 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800 transition-all duration-300 hover:shadow-lg focus:ring-4 focus:ring-purple-300"
                   >
-                    <span>Book Now</span>
-                    <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    Book Now
+                    <svg
+                      className="w-5 h-5 ml-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -160,34 +159,56 @@ const HealthPackages = () => {
         </div>
 
         {/* Additional Information */}
-        <div className="mt-16">
-          <div className="bg-gray-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Important Information
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Preparation Guidelines
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• 12-hour fasting required for blood tests</li>
-                  <li>• Bring previous medical records if available</li>
-                  <li>• Wear comfortable clothing</li>
-                  <li>• Allow 2-3 hours for the check-up</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Additional Benefits
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Free follow-up consultation</li>
-                  <li>• Digital health records</li>
-                  <li>• Detailed health report</li>
-                  <li>• Lifestyle recommendations</li>
-                </ul>
-              </div>
+        <div className="mt-16 bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+            Plan Your Visit
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Preparation Guidelines
+              </h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  12-hour fasting required for blood tests
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  Bring previous medical records if available
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  Wear comfortable clothing
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  Allow 2-3 hours for the check-up
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Additional Benefits
+              </h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  Free follow-up consultation
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  Digital health records access
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  Detailed health report
+                </li>
+                <li className="flex items-start">
+                  <FaCheckCircle className="h-5 w-5 text-purple-700 mr-2 mt-1" />
+                  Personalized lifestyle recommendations
+                </li>
+              </ul>
             </div>
           </div>
         </div>

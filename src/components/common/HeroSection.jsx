@@ -7,54 +7,59 @@ const HeroSection = ({
   backgroundImage,
   buttonText,
   buttonLink,
-  overlayColor = 'from-purple-900/80',
-  height = 'h-[450px]'
+  overlayColor = 'from-purple-900/70 to-indigo-900/70',
+  height = 'h-[650px]',
 }) => {
   return (
-    <div className={`relative ${height} overflow-hidden group`}>
-      {/* Background Image with Parallax Effect */}
+    <div className={`relative ${height} overflow-hidden`}>
+      {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transform transition-transform duration-3000 group-hover:scale-110"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />
 
+      {/* Decorative Shape */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-32 text-purple-700/20"
+        viewBox="0 0 1440 100"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"
+          fill="currentColor"
+        />
+      </svg>
+
       {/* Gradient Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-r ${overlayColor} to-transparent`} />
+      <div className={`absolute inset-0 bg-gradient-to-r ${overlayColor}`} />
 
       {/* Content */}
-      <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col justify-center h-full max-w-2xl">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 animate-fade-in-up">
+      <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+        <div className="w-full md:w-2/3 lg:w-1/2">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-white mb-4 animate-slide-up">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 animate-fade-in-up animation-delay-200">
+          <p className="text-md md:text-md text-white/90 mb-8 animate-slide-up animation-delay-200">
             {subtitle}
           </p>
           {buttonText && buttonLink && (
-            <div className="animate-fade-in-up animation-delay-400">
+            <div className="flex space-x-4 animate-slide-up animation-delay-400">
               <a
                 href={buttonLink}
-                className="inline-flex items-center px-7 py-3 text-lg font-medium 
-      bg-purple-600 text-white rounded-full transition-all duration-100 hover:bg-purple-700 hover:text-white hover:scale-105 hover:shadow-lg"
+                className="inline-flex items-center px-5 py-2 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800 transition-all duration-300 hover:shadow-lg focus:ring-4 focus:ring-purple-300"
               >
                 {buttonText}
-                <svg
-                  className="w-5 h-5 ml-2 -mr-1 transform transition-transform group-hover:translate-x-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center px-5 py-2 bg-transparent border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-purple-700 transition-all duration-300"
+              >
+                Contact Us
               </a>
             </div>
           )}
         </div>
       </div>
-
     </div>
   );
 };

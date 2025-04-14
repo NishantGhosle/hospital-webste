@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const services = [
   'Comprehensive Emergency Care',
@@ -10,55 +11,48 @@ const services = [
   'Renal Care & Dialysis',
   'Blood Bank & Laboratory',
   'Obstetrics & Gynaecology',
-  'Pharmacy & Ambulance Services'
+  'Pharmacy & Ambulance Services',
 ];
 
 const ServicesGrid = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
             <img
               src="https://c8.alamy.com/comp/TW2CR7/professional-african-female-doctor-at-the-hospital-medical-healthcare-business-and-doctor-service-of-africa-TW2CR7.jpg"
-              // src="/doctor.jpg"
               alt="Professional Doctor"
-              className="w-full h-auto rounded-lg shadow-xl"
+              className="w-full h-auto rounded-2xl shadow-xl object-cover"
             />
           </div>
-          
-          <div className="lg:w-1/2 space-y-6">
-            <h2 className="text-4xl font-bold text-purple-700 mb-4">
-              Here for You, Here for Generations
-            </h2>
-            
-            <p className="text-gray-600 mb-6">
-              For almost 50 years, National Hospital has been a trusted name in healthcare across
-              Malabar. Located in the heart of Kozhikode, our 400-bedded super-specialty hospital
-              is more than just a medical facility – it's a place where advanced technology meets
-              genuine compassion.
-            </p>
-           
 
+          <div className="lg:w-1/2 space-y-8">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+              Care That Endures
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+              For nearly five decades, National Hospital has been a beacon of trust in Kozhikode. Our 400-bed super-specialty facility combines state-of-the-art technology with heartfelt compassion to deliver exceptional care.
+            </p>
             <div>
-              <h3 className="text-2xl font-semibold text-purple-700 mb-4">What We Offer:</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                Our Services
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {services.map((service, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center space-x-2 text-gray-700"
-                  >
-                    <span className="text-purple-700">•</span>
-                    <span>{service}</span>
+                  <div key={index} className="flex items-center space-x-3">
+                    <FaCheckCircle className="h-5 w-5 text-purple-700 flex-shrink-0" />
+                    <span className="text-gray-700 text-sm md:text-base">{service}</span>
                   </div>
                 ))}
               </div>
             </div>
-
-            <button className="inline-flex items-center px-7 py-3 text-lg font-medium 
-      bg-purple-600 text-white rounded-full transition-all duration-100 hover:bg-purple-700 hover:text-white hover:scale-105 hover:shadow-lg">
-              AND MORE
-            </button>
+            <a
+              href="/services"
+              className="inline-flex items-center px-6 py-3 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800 transition-all duration-300 hover:shadow-lg focus:ring-4 focus:ring-purple-300"
+            >
+              Discover More
+            </a>
           </div>
         </div>
       </div>
