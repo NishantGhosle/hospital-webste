@@ -47,10 +47,11 @@ const DepartmentSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight animate-[slide-up_0.6s_ease-out]">
-            Our Departments
+          Departments That Care, Experts Who Cure
           </h1>
-          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-[slide-up_0.6s_ease-out_0.2s]">
-            Discover specialized care tailored to your health needs, delivered with precision and compassion.
+          <p className="mt-4 text-lg md:text-md text-gray-600 max-w-3xl mx-auto animate-[slide-up_0.6s_ease-out_0.2s]">
+          We combine innovation with expertise to treat a wide range of health concerns:
+
           </p>
         </div>
 
@@ -102,6 +103,7 @@ const DepartmentSection = () => {
                     </div>
                   </div>
                 </div>
+                
               </div>
             ))}
           </div>

@@ -106,6 +106,55 @@ const About = () => {
           </div>
         </div>
 
+        {/* What Our Patients Say */}
+        <div className="mt-20 py-16 bg-gradient-to-br from-indigo-50 to-purple-100 rounded-3xl">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12 animate-fade-in">
+              What Our Patients Say
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  quote: "I came in with fear, I walked out with gratitude. The care I received at Atal was beyond anything I expected.",
+                  name: "Sunita Verma",
+                  role: "Heart Patient",
+                },
+                {
+                  quote: "They treated my father like their own. Hats off to the team!",
+                  name: "Rajesh S.",
+                  role: "Trauma Recovery",
+                },
+                {
+                  quote: "My child’s health was critical. Today she’s smiling again, all thanks to Atal.",
+                  name: "Nagma F.",
+                  role: "Pediatric ICU",
+                },
+              ].map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <p className="text-gray-600 italic mb-4 text-base md:text-lg leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-indigo-200 rounded-full flex items-center justify-center mr-4">
+                      <svg className="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                        <path d="M4 8a8 8 0 1112 0 8 8 0 01-12 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-md font-semibold text-gray-900">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div className="mt-16 bg-purple-700 rounded-2xl p-8 md:p-12 text-center text-white">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
@@ -122,6 +171,18 @@ const About = () => {
           </a>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-fade-in {
+          animation-fill-mode: forwards;
+          animation-duration: 0.6s;
+          animation-timing-function: ease-out;
+        }
+      `}</style>
     </div>
   );
 };

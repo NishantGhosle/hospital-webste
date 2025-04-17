@@ -2,16 +2,12 @@ import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 
 const services = [
-  'Comprehensive Emergency Care',
-  'Cardiology Services',
-  'Center for Digestive & Liver Diseases',
-  'Advanced Surgical Care',
+  '5000+ patients cured',
+  '24x7 emergency response',
+  'Multispeciality care under one roof',
+  'NABH-like quality assurance',
   'Neurological Sciences',
-  'Laser Treatment Clinic',
-  'Renal Care & Dialysis',
-  'Blood Bank & Laboratory',
-  'Obstetrics & Gynaecology',
-  'Pharmacy & Ambulance Services',
+  'Trusted by families across the region',
 ];
 
 const ServicesGrid = () => {
@@ -29,10 +25,11 @@ const ServicesGrid = () => {
 
           <div className="lg:w-1/2 space-y-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-              Care That Endures
+            Why Choose Atal?
             </h2>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-              For nearly five decades, National Hospital has been a beacon of trust in Kozhikode. Our 400-bed super-specialty facility combines state-of-the-art technology with heartfelt compassion to deliver exceptional care.
+            Because health isn’t just about medicine — it’s about compassion, clarity, and care. Here, science
+            meets sensitivity, and experience meets empathy
             </p>
             <div>
               <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
