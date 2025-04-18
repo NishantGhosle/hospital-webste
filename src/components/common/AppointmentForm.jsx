@@ -26,8 +26,19 @@ const AppointmentForm = () => {
       message: Yup.string(),
     }),
     onSubmit: (values) => {
+      // Format the form data for the alert
+      const formattedDetails = `
+Appointment Details:
+Full Name: ${values.name}
+Email: ${values.email}
+Mobile Number: ${values.phone}
+Department: ${values.department}
+Appointment Date: ${new Date(values.date).toLocaleDateString()}
+Doctor: ${values.doctor}
+Additional Notes: ${values.message || 'None'}
+      `;
       console.log(values);
-      alert('Appointment request submitted successfully!');
+      alert(formattedDetails);
       formik.resetForm();
     },
   });
@@ -53,15 +64,14 @@ const AppointmentForm = () => {
     <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-        Book Your Appointment in Seconds
+          Book Your Appointment in Seconds
         </h2>
         <p className="mt-3 text-gray-600 text-base md:text-md max-w-2xl mx-auto">
-        Your health can’t wait—and now it doesn’t have to.
+          Your health can’t wait—and now it doesn’t have to.
         </p>
         <p className=" text-gray-600 text-base md:text-md max-w-2xl mx-auto">
-        [Book Now] or Call: [Insert Phone Number]
-Walk-ins welcome. Online priority slots available.
-
+          [Book Now] or Call: [Insert Phone Number]
+          Walk-ins welcome. Online priority slots available.
         </p>
       </div>
 

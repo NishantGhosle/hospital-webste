@@ -1,8 +1,38 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import HeroSection from '../components/common/HeroSection';
 import { FaPhone, FaEnvelope, FaHospital } from 'react-icons/fa';
 
 const Contact = () => {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      mobile: '',
+      subject: '',
+      message: '',
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required('Full name is required'),
+      mobile: Yup.string().required('Mobile number is required'),
+      subject: Yup.string().required('Subject is required'),
+      message: Yup.string().required('Message is required'),
+    }),
+    onSubmit: (values) => {
+      // Format the form data for the alert
+      const formattedDetails = `
+Contact Form Submission:
+Full Name: ${values.name}
+Mobile: ${values.mobile}
+Subject: ${values.subject}
+Message: ${values.message}
+      `;
+      console.log(values);
+      alert(formattedDetails);
+      formik.resetForm();
+    },
+  });
+
   return (
     <div className="bg-gray-50">
       <HeroSection
@@ -70,7 +100,7 @@ const Contact = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
               Send Us a Message
             </h2>
-            <form className="space-y-6">
+            <form onSubmit={formik.handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -81,9 +111,12 @@ const Contact = () => {
                     id="name"
                     name="name"
                     placeholder="Your Name"
+                    {...formik.getFieldProps('name')}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-purple-700 focus:border-transparent bg-gray-50 outline-none transition-all"
-                    required
                   />
+                  {formik.touched.name && formik.errors.name && (
+                    <div className="text-red-600 text-sm mt-1">{formik.errors.name}</div>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
@@ -94,9 +127,12 @@ const Contact = () => {
                     id="mobile"
                     name="mobile"
                     placeholder="Your Mobile"
+                    {...formik.getFieldProps('mobile')}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-purple-700 focus:border-transparent bg-gray-50 outline-none transition-all"
-                    required
                   />
+                  {formik.touched.mobile && formik.errors.mobile && (
+                    <div className="text-red-600 text-sm mt-1">{formik.errors.mobile}</div>
+                  )}
                 </div>
               </div>
 
@@ -109,9 +145,12 @@ const Contact = () => {
                   id="subject"
                   name="subject"
                   placeholder="What's this about?"
+                  {...formik.getFieldProps('subject')}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-purple-700 focus:border-transparent bg-gray-50 outline-none transition-all"
-                  required
                 />
+                {formik.touched.subject && formik.errors.subject && (
+                  <div className="text-red-600 text-sm mt-1">{formik.errors.subject}</div>
+                  )}
               </div>
 
               <div>
@@ -123,9 +162,12 @@ const Contact = () => {
                   name="message"
                   rows={5}
                   placeholder="Tell us more..."
+                  {...formik.getFieldProps('message')}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-purple-700 focus:border-transparent bg-gray-50 outline-none transition-all resize-none"
-                  required
                 />
+                {formik.touched.message && formik.errors.message && (
+                  <div className="text-red-600 text-sm mt-1">{formik.errors.message}</div>
+                )}
               </div>
 
               <div className="flex justify-end">
